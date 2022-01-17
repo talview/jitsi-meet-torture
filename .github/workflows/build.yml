@@ -39,8 +39,11 @@ jobs:
         distribution: 'adopt'
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v1
-    - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v1
+      with:
+        languages: java
     - name: Build with Maven
       run: mvn clean compile
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v1
+
 
